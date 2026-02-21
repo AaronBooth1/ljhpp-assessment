@@ -2,7 +2,7 @@
 """
 🏢 LJ Hooker Property Partners - Assessment Platform
 ==================================================
-Railway.app Deployment Version - SECURE EDITION
+Railway.app Deployment Version - FONT OPTIMIZED & SECURITY ENHANCED
 """
 
 import os
@@ -23,10 +23,12 @@ PORT = int(os.environ.get('PORT', 5000))
 ADMIN_EMAIL = 'admin@ljhpp.com'
 ADMIN_PASSWORD = 'admin123'
 
-# LJ Hooker Brand Colors
+# LJ Hooker Brand Colors - Matching Gamma site
 LJ_RED = '#E31E24'
 LJ_DARK = '#1A1A1A'
 LJ_GRAY = '#6C6C6C'
+LJ_LIGHT_GRAY = '#F8F9FA'
+LJ_ACCENT = '#FF6B6B'
 
 # 100 Professional Assessment Questions
 BASE_QUESTIONS = [
@@ -323,23 +325,38 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             self.send_error(500)
     
     def serve_home(self):
-        """Serve LJ Hooker branded home page"""
+        """Serve LJ Hooker branded home page with optimized fonts"""
         html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>LJ Hooker Property Partners - Assessment Platform</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        * {{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }}
+        
         body {{ 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
             background: linear-gradient(135deg, {LJ_RED} 0%, {LJ_DARK} 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }}
+        
         .container {{
             background: white;
             padding: 50px;
@@ -349,6 +366,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             max-width: 600px;
             width: 90%;
         }}
+        
         .logo {{
             width: 100px;
             height: 100px;
@@ -360,11 +378,26 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             justify-content: center;
             color: white;
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 700;
+            letter-spacing: 2px;
             box-shadow: 0 10px 20px rgba(227, 30, 36, 0.3);
         }}
-        h1 {{ color: {LJ_DARK}; margin-bottom: 10px; font-size: 2.5em; }}
-        .subtitle {{ color: {LJ_GRAY}; margin-bottom: 30px; font-size: 1.2em; }}
+        
+        h1 {{ 
+            color: {LJ_DARK}; 
+            margin-bottom: 10px; 
+            font-size: 2.5em; 
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }}
+        
+        .subtitle {{ 
+            color: {LJ_GRAY}; 
+            margin-bottom: 30px; 
+            font-size: 1.2em; 
+            font-weight: 400;
+        }}
+        
         .btn {{
             background: {LJ_RED};
             color: white;
@@ -372,51 +405,112 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border: none;
             border-radius: 50px;
             font-size: 18px;
+            font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             margin: 15px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+            font-family: inherit;
         }}
+        
         .btn:hover {{ 
             background: #c41e22; 
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(227, 30, 36, 0.4);
         }}
-        .btn-secondary {{ background: {LJ_DARK}; }}
-        .btn-secondary:hover {{ background: #333; }}
+        
+        .btn-secondary {{ 
+            background: {LJ_DARK}; 
+        }}
+        
+        .btn-secondary:hover {{ 
+            background: #333; 
+        }}
+        
         .status {{
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, {LJ_LIGHT_GRAY} 0%, #e9ecef 100%);
             color: {LJ_DARK};
             padding: 25px;
             border-radius: 15px;
             margin: 30px 0;
             border-left: 5px solid {LJ_RED};
+            font-weight: 400;
         }}
+        
+        .status strong {{
+            font-weight: 600;
+        }}
+        
         .features {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }}
+        
         .feature {{
             padding: 20px;
-            background: #f8f9fa;
+            background: {LJ_LIGHT_GRAY};
             border-radius: 10px;
             border-top: 3px solid {LJ_RED};
         }}
-        .feature-icon {{ font-size: 24px; margin-bottom: 10px; }}
-        .feature-title {{ font-weight: bold; color: {LJ_DARK}; margin-bottom: 5px; }}
-        .feature-desc {{ font-size: 14px; color: {LJ_GRAY}; }}
+        
+        .feature-icon {{ 
+            font-size: 24px; 
+            margin-bottom: 10px; 
+        }}
+        
+        .feature-title {{ 
+            font-weight: 600; 
+            color: {LJ_DARK}; 
+            margin-bottom: 5px; 
+            font-size: 16px;
+        }}
+        
+        .feature-desc {{ 
+            font-size: 14px; 
+            color: {LJ_GRAY}; 
+            font-weight: 400;
+        }}
+        
         .cloud-badge {{
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 20px;
             display: inline-block;
+            font-size: 14px;
+        }}
+        
+        /* Font optimization for different devices */
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {{
+            body {{
+                -webkit-font-smoothing: subpixel-antialiased;
+            }}
+        }}
+        
+        @media (max-width: 768px) {{
+            .container {{
+                padding: 30px 20px;
+            }}
+            
+            h1 {{
+                font-size: 2em;
+            }}
+            
+            .subtitle {{
+                font-size: 1.1em;
+            }}
+            
+            .btn {{
+                padding: 15px 30px;
+                font-size: 16px;
+                margin: 10px 5px;
+            }}
         }}
     </style>
 </head>
@@ -464,12 +558,12 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         """
         
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write(html_content.encode())
+        self.wfile.write(html_content.encode('utf-8'))
     
     def serve_assessment(self):
-        """Serve comprehensive assessment form"""
+        """Serve comprehensive assessment form with optimized fonts"""
         questions_html = ""
         for i, question in enumerate(QUESTIONS, 1):
             questions_html += f"""
@@ -507,17 +601,32 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         
         html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>LJHPP Professional Assessment</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{ 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            min-height: 100vh;
+        * {{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }}
+        
+        body {{ 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            background: {LJ_LIGHT_GRAY};
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }}
+        
         .header {{
             background: linear-gradient(135deg, {LJ_RED} 0%, {LJ_DARK} 100%);
             color: white;
@@ -528,7 +637,24 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }}
-        .container {{ max-width: 800px; margin: 0 auto; padding: 30px; }}
+        
+        .header h1 {{
+            font-weight: 600;
+            font-size: 2.2em;
+            letter-spacing: -0.02em;
+        }}
+        
+        .header p {{
+            font-weight: 400;
+            opacity: 0.9;
+        }}
+        
+        .container {{ 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 30px; 
+        }}
+        
         .candidate-info {{
             background: white;
             padding: 30px;
@@ -537,20 +663,34 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-left: 5px solid {LJ_RED};
         }}
-        .form-group {{ margin-bottom: 20px; }}
+        
+        .candidate-info h3 {{
+            font-weight: 600;
+            color: {LJ_DARK};
+            margin-bottom: 20px;
+        }}
+        
+        .form-group {{ 
+            margin-bottom: 20px; 
+        }}
+        
         .form-group input {{
             width: 100%;
             padding: 15px;
             border: 2px solid #e9ecef;
             border-radius: 10px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            font-family: inherit;
+            font-weight: 400;
+            transition: border-color 0.3s ease;
         }}
+        
         .form-group input:focus {{
             border-color: {LJ_RED};
             outline: none;
             box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
         }}
+        
         .question {{
             background: white;
             margin: 20px 0;
@@ -560,6 +700,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border-left: 5px solid {LJ_RED};
             position: relative;
         }}
+        
         .question-number {{
             position: absolute;
             top: 15px;
@@ -569,15 +710,18 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
         }}
+        
         .question-text {{ 
             color: {LJ_DARK}; 
             margin-bottom: 20px; 
             font-size: 18px; 
             font-weight: 500;
             padding-right: 80px;
+            line-height: 1.5;
         }}
+        
         .scale {{
             display: flex;
             justify-content: space-between;
@@ -585,33 +729,39 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             margin: 15px 0;
             flex-wrap: wrap;
         }}
+        
         .scale-label {{ 
-            font-weight: bold; 
+            font-weight: 600; 
             color: {LJ_GRAY}; 
             font-size: 14px;
             min-width: 120px;
         }}
+        
         .scale-options {{
             display: flex;
             gap: 20px;
             margin: 10px 0;
         }}
+        
         .scale-option {{
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
         }}
+        
         .scale-option input {{ 
             margin: 0;
             transform: scale(1.3);
             accent-color: {LJ_RED};
         }}
+        
         .scale-option label {{ 
             font-size: 14px; 
             color: {LJ_GRAY};
-            font-weight: bold;
+            font-weight: 600;
         }}
+        
         .btn {{
             background: {LJ_RED};
             color: white;
@@ -619,21 +769,26 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border: none;
             border-radius: 50px;
             font-size: 18px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+            font-family: inherit;
         }}
+        
         .btn:hover {{ 
             background: #c41e22; 
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(227, 30, 36, 0.4);
         }}
+        
         .btn:disabled {{
             background: #ccc;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }}
+        
         .submit-section {{ 
             text-align: center; 
             margin: 40px 0;
@@ -642,6 +797,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }}
+        
         .progress {{
             background: #e9ecef;
             height: 12px;
@@ -652,25 +808,48 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             top: 120px;
             z-index: 99;
         }}
+        
         .progress-bar {{
-            background: linear-gradient(90deg, {LJ_RED} 0%, #ff6b6b 100%);
+            background: linear-gradient(90deg, {LJ_RED} 0%, {LJ_ACCENT} 100%);
             height: 100%;
             border-radius: 6px;
-            transition: width 0.3s;
+            transition: width 0.3s ease;
             width: 0%;
         }}
+        
         .progress-text {{
             text-align: center;
             margin-top: 10px;
             color: {LJ_GRAY};
-            font-weight: bold;
+            font-weight: 600;
         }}
+        
         @media (max-width: 768px) {{
-            .scale {{ flex-direction: column; gap: 15px; }}
-            .scale-options {{ justify-content: center; }}
-            .scale-label {{ min-width: auto; }}
-            .question-text {{ padding-right: 0; }}
-            .question-number {{ position: static; margin-bottom: 10px; }}
+            .scale {{ 
+                flex-direction: column; 
+                gap: 15px; 
+            }}
+            
+            .scale-options {{ 
+                justify-content: center; 
+            }}
+            
+            .scale-label {{ 
+                min-width: auto; 
+            }}
+            
+            .question-text {{ 
+                padding-right: 0; 
+            }}
+            
+            .question-number {{ 
+                position: static; 
+                margin-bottom: 10px; 
+            }}
+            
+            .container {{
+                padding: 20px 15px;
+            }}
         }}
     </style>
 </head>
@@ -757,33 +936,48 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         """
         
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write(html_content.encode())
+        self.wfile.write(html_content.encode('utf-8'))
     
     def serve_admin(self):
-        """Serve admin login page"""
+        """Serve admin login page with hidden credentials"""
         query = urlparse(self.path).query
         error_msg = ""
         if 'error=1' in query:
-            error_msg = '<div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px;">❌ Invalid credentials. Please try again.</div>'
+            error_msg = '<div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 500;">❌ Invalid credentials. Please try again.</div>'
         
         html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>LJHPP Admin Login</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        * {{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }}
+        
         body {{ 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
             background: linear-gradient(135deg, {LJ_RED} 0%, {LJ_DARK} 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }}
+        
         .login-container {{
             background: white;
             padding: 50px;
@@ -792,6 +986,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             max-width: 400px;
             width: 90%;
         }}
+        
         .logo {{
             width: 80px;
             height: 80px;
@@ -803,21 +998,38 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             justify-content: center;
             color: white;
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 600;
         }}
-        h2 {{ text-align: center; color: {LJ_DARK}; margin-bottom: 30px; }}
-        .form-group {{ margin-bottom: 20px; }}
+        
+        h2 {{ 
+            text-align: center; 
+            color: {LJ_DARK}; 
+            margin-bottom: 30px; 
+            font-weight: 600;
+            font-size: 1.8em;
+        }}
+        
+        .form-group {{ 
+            margin-bottom: 20px; 
+        }}
+        
         .form-group input {{
             width: 100%;
             padding: 15px;
             border: 2px solid #e9ecef;
             border-radius: 10px;
             font-size: 16px;
+            font-family: inherit;
+            font-weight: 400;
+            transition: border-color 0.3s ease;
         }}
+        
         .form-group input:focus {{
             border-color: {LJ_RED};
             outline: none;
+            box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
         }}
+        
         .btn {{
             width: 100%;
             background: {LJ_RED};
@@ -826,26 +1038,41 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border: none;
             border-radius: 10px;
             font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s ease;
+            font-family: inherit;
         }}
-        .btn:hover {{ background: #c41e22; }}
+        
+        .btn:hover {{ 
+            background: #c41e22; 
+        }}
+        
         .back-link {{
             text-align: center;
             margin-top: 20px;
         }}
+        
         .back-link a {{
             color: {LJ_GRAY};
             text-decoration: none;
+            font-weight: 400;
         }}
+        
         .credentials {{
-            background: #f8f9fa;
+            background: {LJ_LIGHT_GRAY};
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 14px;
             color: {LJ_GRAY};
             text-align: center;
+            font-weight: 400;
+        }}
+        
+        .credentials strong {{
+            font-weight: 600;
+            color: {LJ_DARK};
         }}
     </style>
 </head>
@@ -879,9 +1106,9 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         """
         
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write(html_content.encode())
+        self.wfile.write(html_content.encode('utf-8'))
     
     def handle_assessment_submission(self, post_data):
         """Handle comprehensive assessment submission"""
@@ -930,7 +1157,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             self.send_error(500)
     
     def show_comprehensive_results(self, candidate, scores, profile):
-        """Show comprehensive assessment results"""
+        """Show comprehensive assessment results with optimized fonts"""
         
         # Generate role recommendations HTML
         roles_html = ""
@@ -975,24 +1202,51 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         
         html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>LJHPP Assessment Results</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{ 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            min-height: 100vh;
+        * {{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }}
+        
+        body {{ 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            background: {LJ_LIGHT_GRAY};
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }}
+        
         .header {{
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
             padding: 40px;
             text-align: center;
         }}
-        .container {{ max-width: 1000px; margin: 0 auto; padding: 30px; }}
+        
+        .header h1 {{
+            font-weight: 600;
+            font-size: 2.5em;
+            letter-spacing: -0.02em;
+        }}
+        
+        .container {{ 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 30px; 
+        }}
+        
         .result-section {{
             background: white;
             padding: 30px;
@@ -1001,37 +1255,52 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-left: 5px solid {LJ_RED};
         }}
+        
+        .result-section h3 {{
+            font-weight: 600;
+            color: {LJ_DARK};
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }}
+        
         .personality-type {{
             text-align: center;
             padding: 40px;
-            background: linear-gradient(135deg, {LJ_RED} 0%, #ff6b6b 100%);
+            background: linear-gradient(135deg, {LJ_RED} 0%, {LJ_ACCENT} 100%);
             color: white;
             border-radius: 15px;
             margin-bottom: 30px;
         }}
+        
         .personality-type h2 {{
             font-size: 2.5em;
             margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }}
+        
         .traits-grid {{
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
             margin: 25px 0;
         }}
+        
         .trait-item {{
             display: flex;
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: #f8f9fa;
+            background: {LJ_LIGHT_GRAY};
             border-radius: 10px;
         }}
+        
         .trait-name {{
             min-width: 120px;
-            font-weight: bold;
+            font-weight: 600;
             color: {LJ_DARK};
         }}
+        
         .trait-bar {{
             flex: 1;
             height: 20px;
@@ -1039,31 +1308,36 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             border-radius: 10px;
             overflow: hidden;
         }}
+        
         .trait-fill {{
             height: 100%;
             border-radius: 10px;
             transition: width 0.5s ease;
         }}
+        
         .trait-score {{
             min-width: 50px;
-            font-weight: bold;
+            font-weight: 600;
             color: {LJ_DARK};
         }}
+        
         .roles-grid {{
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             margin: 25px 0;
         }}
+        
         .role-item {{
             display: flex;
             align-items: center;
             gap: 15px;
             padding: 20px;
-            background: #f8f9fa;
+            background: {LJ_LIGHT_GRAY};
             border-radius: 10px;
             border-left: 4px solid {LJ_RED};
         }}
+        
         .role-rank {{
             color: white;
             width: 40px;
@@ -1072,32 +1346,41 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 18px;
         }}
-        .role-info {{ flex: 1; }}
+        
+        .role-info {{ 
+            flex: 1; 
+        }}
+        
         .role-name {{
-            font-weight: bold;
+            font-weight: 600;
             color: {LJ_DARK};
             font-size: 18px;
             margin-bottom: 5px;
         }}
+        
         .role-score {{
             color: {LJ_GRAY};
             font-size: 14px;
             margin-bottom: 8px;
+            font-weight: 500;
         }}
+        
         .role-bar {{
             height: 8px;
             background: #e9ecef;
             border-radius: 4px;
             overflow: hidden;
         }}
+        
         .role-fill {{
             height: 100%;
             border-radius: 4px;
             transition: width 0.5s ease;
         }}
+        
         .btn {{
             background: {LJ_RED};
             color: white;
@@ -1107,22 +1390,39 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: 500;
         }}
+        
         .btn:hover {{ 
             background: #c41e22; 
             transform: translateY(-2px);
         }}
-        .actions {{ text-align: center; margin-top: 40px; }}
-        ul {{ padding-left: 25px; }}
-        li {{ margin: 8px 0; color: {LJ_DARK}; }}
+        
+        .actions {{ 
+            text-align: center; 
+            margin-top: 40px; 
+        }}
+        
+        ul {{ 
+            padding-left: 25px; 
+        }}
+        
+        li {{ 
+            margin: 8px 0; 
+            color: {LJ_DARK}; 
+            font-weight: 400;
+        }}
+        
         .management-style {{
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, {LJ_LIGHT_GRAY} 0%, #e9ecef 100%);
             padding: 25px;
             border-radius: 10px;
             border-left: 4px solid #ffc107;
             margin: 20px 0;
         }}
+        
         .disclaimer {{
             background: #fff3cd;
             color: #856404;
@@ -1131,6 +1431,11 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             margin: 20px 0;
             border-left: 4px solid #ffc107;
             font-size: 14px;
+            font-weight: 400;
+        }}
+        
+        .disclaimer strong {{
+            font-weight: 600;
         }}
     </style>
 </head>
@@ -1195,9 +1500,9 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         """
         
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write(html_content.encode())
+        self.wfile.write(html_content.encode('utf-8'))
     
     def handle_admin_login(self, post_data):
         """Handle admin login"""
@@ -1218,7 +1523,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             self.send_error(500)
     
     def serve_dashboard(self):
-        """Serve comprehensive admin dashboard"""
+        """Serve comprehensive admin dashboard with optimized fonts"""
         try:
             # Generate statistics
             today = datetime.now().strftime('%Y-%m-%d')
@@ -1247,30 +1552,58 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             
             html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>LJHPP Admin Dashboard</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{ 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            min-height: 100vh;
+        * {{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }}
+        
+        body {{ 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            background: {LJ_LIGHT_GRAY};
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }}
+        
         .header {{
             background: linear-gradient(135deg, {LJ_DARK} 0%, {LJ_RED} 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }}
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 30px; }}
+        
+        .header h1 {{
+            font-weight: 600;
+            font-size: 2.2em;
+            letter-spacing: -0.02em;
+        }}
+        
+        .container {{ 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 30px; 
+        }}
+        
         .stats {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }}
+        
         .stat-card {{
             background: white;
             padding: 30px;
@@ -1279,50 +1612,62 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             text-align: center;
             border-top: 4px solid {LJ_RED};
         }}
+        
         .stat-number {{
             font-size: 48px;
-            font-weight: bold;
+            font-weight: 700;
             color: {LJ_RED};
             margin-bottom: 10px;
         }}
+        
         .stat-label {{
             color: {LJ_GRAY};
             font-size: 16px;
             font-weight: 500;
         }}
+        
         .candidates-section {{
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
         }}
+        
         .section-header {{
             background: {LJ_DARK};
             color: white;
             padding: 25px;
             font-size: 20px;
-            font-weight: bold;
+            font-weight: 600;
         }}
+        
         table {{
             width: 100%;
             border-collapse: collapse;
         }}
+        
         th {{
-            background: #f8f9fa;
+            background: {LJ_LIGHT_GRAY};
             color: {LJ_DARK};
             padding: 15px;
             text-align: left;
-            font-weight: bold;
+            font-weight: 600;
             border-bottom: 2px solid #e9ecef;
             font-size: 14px;
         }}
+        
         td {{
             padding: 15px;
             border-bottom: 1px solid #e9ecef;
             color: {LJ_DARK};
             font-size: 14px;
+            font-weight: 400;
         }}
-        tr:hover {{ background: #f8f9fa; }}
+        
+        tr:hover {{ 
+            background: {LJ_LIGHT_GRAY}; 
+        }}
+        
         .btn {{
             background: {LJ_RED};
             color: white;
@@ -1332,28 +1677,52 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: 500;
         }}
+        
         .btn:hover {{ 
             background: #c41e22; 
             transform: translateY(-2px);
         }}
-        .btn-secondary {{ background: {LJ_DARK}; }}
-        .btn-secondary:hover {{ background: #333; }}
-        .actions {{ text-align: center; margin-top: 30px; }}
+        
+        .btn-secondary {{ 
+            background: {LJ_DARK}; 
+        }}
+        
+        .btn-secondary:hover {{ 
+            background: #333; 
+        }}
+        
+        .actions {{ 
+            text-align: center; 
+            margin-top: 30px; 
+        }}
+        
         .empty-state {{
             text-align: center;
             padding: 60px;
             color: {LJ_GRAY};
         }}
-        .empty-state-icon {{ font-size: 48px; margin-bottom: 20px; }}
+        
+        .empty-state-icon {{ 
+            font-size: 48px; 
+            margin-bottom: 20px; 
+        }}
+        
+        .empty-state h3 {{
+            font-weight: 600;
+            margin-bottom: 10px;
+        }}
+        
         .cloud-badge {{
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
             padding: 5px 15px;
             border-radius: 15px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             margin-left: 10px;
         }}
     </style>
@@ -1422,9 +1791,9 @@ class LJHPPHandler(BaseHTTPRequestHandler):
             """
             
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'text/html; charset=utf-8')
             self.end_headers()
-            self.wfile.write(html_content.encode())
+            self.wfile.write(html_content.encode('utf-8'))
             
         except Exception as e:
             print(f"Dashboard error: {e}")
@@ -1450,10 +1819,10 @@ class LJHPPHandler(BaseHTTPRequestHandler):
                     csv_content += f'"{candidate["name"]}","{candidate["email"]}","{candidate["position"]}","{profile["personality_type"]}",{scores["leadership"]},{scores["analytical"]},{scores["social"]},{scores["detail"]},{scores["adaptability"]},{scores["sales"]},{scores["service"]},{scores["innovation"]},{scores["independence"]},"{role1[0]}",{role1[1]:.1f},"{role2[0]}","{role3[0]}",{candidate["timestamp"][:10]}\n'
             
             self.send_response(200)
-            self.send_header('Content-type', 'text/csv')
+            self.send_header('Content-type', 'text/csv; charset=utf-8')
             self.send_header('Content-Disposition', f'attachment; filename="ljhpp_assessments_{datetime.now().strftime("%Y%m%d")}.csv"')
             self.end_headers()
-            self.wfile.write(csv_content.encode())
+            self.wfile.write(csv_content.encode('utf-8'))
             
         except Exception as e:
             print(f"CSV export error: {e}")
@@ -1472,6 +1841,8 @@ def start_server():
    ✅ Cloud Storage Ready
    ✅ LJ Hooker Branding Applied
    ✅ Real Estate Role Matching Active
+   ✅ Font Optimization Applied
+   ✅ Security Enhanced
 
 🌐 Server Configuration:
    📍 Port: {PORT}
@@ -1492,6 +1863,6 @@ def start_server():
 if __name__ == '__main__':
     print("🏢 LJ Hooker Property Partners")
     print("🎯 Professional Assessment Platform")
-    print("☁️ Railway Deployment Version")
+    print("☁️ Railway Deployment Version - Font Optimized & Security Enhanced")
     print("=" * 50)
     start_server()
