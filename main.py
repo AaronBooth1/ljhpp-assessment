@@ -2,7 +2,7 @@
 """
 🏢 LJ Hooker Property Partners - Assessment Platform
 ==================================================
-Railway.app Deployment Version
+Railway.app Deployment Version - SECURE EDITION
 """
 
 import os
@@ -857,17 +857,16 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         {error_msg}
         
         <div class="credentials">
-            <strong>Admin Credentials:</strong><br>
-            Email: admin@ljhpp.com<br>
-            Password: admin123
+            <strong>Secure Admin Access</strong><br>
+            Please enter your admin credentials
         </div>
         
         <form method="POST" action="/admin_login">
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email Address" value="admin@ljhpp.com" required>
+                <input type="email" name="email" placeholder="Admin Email Address" required>
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="Password" value="admin123" required>
+                <input type="password" name="password" placeholder="Admin Password" required>
             </div>
             <button type="submit" class="btn">🚀 Access Dashboard</button>
         </form>
@@ -1476,7 +1475,7 @@ def start_server():
 
 🌐 Server Configuration:
    📍 Port: {PORT}
-   🔐 Admin: {ADMIN_EMAIL} / {ADMIN_PASSWORD}
+   🔐 Admin: Secure Login Required
 
 🛑 Starting server...
 ==========================================
