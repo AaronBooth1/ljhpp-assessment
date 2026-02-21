@@ -2,7 +2,7 @@
 """
 🏢 LJ Hooker Property Partners - Assessment Platform
 ==================================================
-Railway.app Deployment Version - FONT OPTIMIZED & SECURITY ENHANCED
+Railway.app Deployment Version - OPTIMIZED FOR NEW CANDIDATES
 """
 
 import os
@@ -30,108 +30,108 @@ LJ_GRAY = '#6C6C6C'
 LJ_LIGHT_GRAY = '#F8F9FA'
 LJ_ACCENT = '#FF6B6B'
 
-# 100 Professional Assessment Questions
+# 100 General Assessment Questions - Suitable for New/Entry-Level Candidates
 BASE_QUESTIONS = [
-    {"id": 1, "text": "I naturally take charge in group situations", "category": "leadership"},
-    {"id": 2, "text": "I enjoy analyzing complex data and information", "category": "analytical"},
-    {"id": 3, "text": "I feel energized when meeting new people", "category": "social"},
-    {"id": 4, "text": "I pay close attention to small details", "category": "detail"},
-    {"id": 5, "text": "I adapt quickly to changing circumstances", "category": "adaptability"},
-    {"id": 6, "text": "I enjoy persuading others to see my point of view", "category": "sales"},
-    {"id": 7, "text": "I prioritize helping others succeed", "category": "service"},
-    {"id": 8, "text": "I like to try new approaches and methods", "category": "innovation"},
-    {"id": 9, "text": "I prefer working alone rather than in teams", "category": "independence"},
-    {"id": 10, "text": "I make decisions quickly under pressure", "category": "leadership"},
-    {"id": 11, "text": "I enjoy solving logical puzzles and problems", "category": "analytical"},
-    {"id": 12, "text": "I build rapport easily with strangers", "category": "social"},
-    {"id": 13, "text": "I double-check my work for accuracy", "category": "detail"},
-    {"id": 14, "text": "I remain calm during unexpected changes", "category": "adaptability"},
-    {"id": 15, "text": "I enjoy negotiating deals and agreements", "category": "sales"},
-    {"id": 16, "text": "I go out of my way to assist colleagues", "category": "service"},
-    {"id": 17, "text": "I suggest creative solutions to problems", "category": "innovation"},
-    {"id": 18, "text": "I work best with minimal supervision", "category": "independence"},
-    {"id": 19, "text": "I delegate tasks effectively to team members", "category": "leadership"},
-    {"id": 20, "text": "I base decisions on thorough research", "category": "analytical"},
-    {"id": 21, "text": "I enjoy hosting social gatherings", "category": "social"},
-    {"id": 22, "text": "I organize my workspace meticulously", "category": "detail"},
-    {"id": 23, "text": "I embrace new technologies readily", "category": "adaptability"},
-    {"id": 24, "text": "I excel at closing sales opportunities", "category": "sales"},
-    {"id": 25, "text": "I anticipate customer needs proactively", "category": "service"},
-    {"id": 26, "text": "I challenge conventional thinking", "category": "innovation"},
-    {"id": 27, "text": "I prefer setting my own schedule", "category": "independence"},
-    {"id": 28, "text": "I inspire others to achieve their best", "category": "leadership"},
-    {"id": 29, "text": "I verify facts before making statements", "category": "analytical"},
-    {"id": 30, "text": "I remember personal details about clients", "category": "social"},
-    {"id": 31, "text": "I follow procedures exactly as written", "category": "detail"},
-    {"id": 32, "text": "I thrive in dynamic, changing environments", "category": "adaptability"},
-    {"id": 33, "text": "I identify new business opportunities", "category": "sales"},
-    {"id": 34, "text": "I ensure client satisfaction above all else", "category": "service"},
-    {"id": 35, "text": "I develop innovative marketing strategies", "category": "innovation"},
-    {"id": 36, "text": "I take initiative without being asked", "category": "independence"},
-    {"id": 37, "text": "I set ambitious goals for my team", "category": "leadership"},
-    {"id": 38, "text": "I analyze market trends systematically", "category": "analytical"},
-    {"id": 39, "text": "I maintain long-term client relationships", "category": "social"},
-    {"id": 40, "text": "I create comprehensive documentation", "category": "detail"},
-    {"id": 41, "text": "I adjust strategies based on feedback", "category": "adaptability"},
-    {"id": 42, "text": "I overcome objections confidently", "category": "sales"},
-    {"id": 43, "text": "I exceed service expectations consistently", "category": "service"},
-    {"id": 44, "text": "I implement cutting-edge solutions", "category": "innovation"},
-    {"id": 45, "text": "I work efficiently without constant guidance", "category": "independence"},
-    {"id": 46, "text": "I mentor junior team members", "category": "leadership"},
-    {"id": 47, "text": "I conduct thorough property evaluations", "category": "analytical"},
-    {"id": 48, "text": "I enjoy client entertainment events", "category": "social"},
-    {"id": 49, "text": "I maintain accurate records consistently", "category": "detail"},
-    {"id": 50, "text": "I pivot strategies when markets shift", "category": "adaptability"},
-    {"id": 51, "text": "I prospect for new clients actively", "category": "sales"},
-    {"id": 52, "text": "I resolve client issues promptly", "category": "service"},
-    {"id": 53, "text": "I design unique marketing campaigns", "category": "innovation"},
-    {"id": 54, "text": "I manage my territory independently", "category": "independence"},
-    {"id": 55, "text": "I lead by example in all situations", "category": "leadership"},
-    {"id": 56, "text": "I research comparable sales thoroughly", "category": "analytical"},
-    {"id": 57, "text": "I connect with diverse client personalities", "category": "social"},
-    {"id": 58, "text": "I review contracts meticulously", "category": "detail"},
-    {"id": 59, "text": "I learn new regulations quickly", "category": "adaptability"},
-    {"id": 60, "text": "I convert leads into sales effectively", "category": "sales"},
-    {"id": 61, "text": "I provide exceptional after-sales service", "category": "service"},
-    {"id": 62, "text": "I create innovative listing presentations", "category": "innovation"},
-    {"id": 63, "text": "I self-motivate during slow periods", "category": "independence"},
-    {"id": 64, "text": "I coordinate team projects successfully", "category": "leadership"},
-    {"id": 65, "text": "I interpret market data accurately", "category": "analytical"},
-    {"id": 66, "text": "I network effectively at industry events", "category": "social"},
-    {"id": 67, "text": "I ensure compliance with all regulations", "category": "detail"},
-    {"id": 68, "text": "I adapt communication styles per client", "category": "adaptability"},
-    {"id": 69, "text": "I generate referrals consistently", "category": "sales"},
-    {"id": 70, "text": "I follow up with clients regularly", "category": "service"},
-    {"id": 71, "text": "I use technology to enhance productivity", "category": "innovation"},
-    {"id": 72, "text": "I set and achieve personal targets", "category": "independence"},
-    {"id": 73, "text": "I motivate team members during challenges", "category": "leadership"},
-    {"id": 74, "text": "I calculate investment returns precisely", "category": "analytical"},
-    {"id": 75, "text": "I build trust with clients quickly", "category": "social"},
-    {"id": 76, "text": "I complete paperwork accurately", "category": "detail"},
-    {"id": 77, "text": "I handle multiple priorities simultaneously", "category": "adaptability"},
-    {"id": 78, "text": "I ask for referrals confidently", "category": "sales"},
-    {"id": 79, "text": "I anticipate client concerns proactively", "category": "service"},
-    {"id": 80, "text": "I develop new business processes", "category": "innovation"},
-    {"id": 81, "text": "I work productively from home", "category": "independence"},
-    {"id": 82, "text": "I communicate vision clearly to others", "category": "leadership"},
-    {"id": 83, "text": "I validate information from multiple sources", "category": "analytical"},
-    {"id": 84, "text": "I remember client preferences accurately", "category": "social"},
-    {"id": 85, "text": "I maintain organized client files", "category": "detail"},
-    {"id": 86, "text": "I learn new software applications quickly", "category": "adaptability"},
-    {"id": 87, "text": "I follow up on leads persistently", "category": "sales"},
-    {"id": 88, "text": "I ensure smooth transaction processes", "category": "service"},
-    {"id": 89, "text": "I create engaging social media content", "category": "innovation"},
-    {"id": 90, "text": "I manage my time effectively", "category": "independence"},
-    {"id": 91, "text": "I resolve team conflicts diplomatically", "category": "leadership"},
-    {"id": 92, "text": "I analyze competitor strategies thoroughly", "category": "analytical"},
-    {"id": 93, "text": "I maintain professional relationships long-term", "category": "social"},
-    {"id": 94, "text": "I proofread all communications carefully", "category": "detail"},
-    {"id": 95, "text": "I adjust tactics based on market conditions", "category": "adaptability"},
-    {"id": 96, "text": "I identify upselling opportunities", "category": "sales"},
-    {"id": 97, "text": "I provide comprehensive market updates", "category": "service"},
-    {"id": 98, "text": "I implement new marketing technologies", "category": "innovation"},
-    {"id": 99, "text": "I take ownership of my results", "category": "independence"},
-    {"id": 100, "text": "I build high-performing teams", "category": "leadership"}
+    {"id": 1, "text": "I enjoy meeting new people and making connections", "category": "social"},
+    {"id": 2, "text": "I like to organize my workspace and keep things tidy", "category": "detail"},
+    {"id": 3, "text": "I feel comfortable speaking in front of groups", "category": "leadership"},
+    {"id": 4, "text": "I enjoy learning new things and skills", "category": "adaptability"},
+    {"id": 5, "text": "I prefer to work as part of a team rather than alone", "category": "social"},
+    {"id": 6, "text": "I like to double-check my work before submitting it", "category": "detail"},
+    {"id": 7, "text": "I often take the initiative to start new projects", "category": "leadership"},
+    {"id": 8, "text": "I adapt easily to changes in plans or procedures", "category": "adaptability"},
+    {"id": 9, "text": "I enjoy helping others solve their problems", "category": "service"},
+    {"id": 10, "text": "I like to research topics thoroughly before making decisions", "category": "analytical"},
+    {"id": 11, "text": "I feel energized when working with customers or clients", "category": "social"},
+    {"id": 12, "text": "I pay attention to small details that others might miss", "category": "detail"},
+    {"id": 13, "text": "I'm comfortable making decisions when others are unsure", "category": "leadership"},
+    {"id": 14, "text": "I handle unexpected situations calmly", "category": "adaptability"},
+    {"id": 15, "text": "I go out of my way to ensure customer satisfaction", "category": "service"},
+    {"id": 16, "text": "I enjoy analyzing information to find patterns", "category": "analytical"},
+    {"id": 17, "text": "I build relationships easily with new people", "category": "social"},
+    {"id": 18, "text": "I create lists and schedules to stay organized", "category": "detail"},
+    {"id": 19, "text": "I'm willing to take charge when leadership is needed", "category": "leadership"},
+    {"id": 20, "text": "I see change as an opportunity rather than a problem", "category": "adaptability"},
+    {"id": 21, "text": "I genuinely care about helping people achieve their goals", "category": "service"},
+    {"id": 22, "text": "I like to gather all the facts before forming opinions", "category": "analytical"},
+    {"id": 23, "text": "I enjoy networking and building professional relationships", "category": "social"},
+    {"id": 24, "text": "I follow through on commitments and promises", "category": "detail"},
+    {"id": 25, "text": "I'm comfortable delegating tasks to others", "category": "leadership"},
+    {"id": 26, "text": "I learn new technology and tools quickly", "category": "adaptability"},
+    {"id": 27, "text": "I put the needs of others before my own", "category": "service"},
+    {"id": 28, "text": "I enjoy solving complex problems step by step", "category": "analytical"},
+    {"id": 29, "text": "I remember personal details about people I meet", "category": "social"},
+    {"id": 30, "text": "I maintain high standards in everything I do", "category": "detail"},
+    {"id": 31, "text": "I inspire others to do their best work", "category": "leadership"},
+    {"id": 32, "text": "I thrive in fast-paced, dynamic environments", "category": "adaptability"},
+    {"id": 33, "text": "I anticipate what others need before they ask", "category": "service"},
+    {"id": 34, "text": "I compare options carefully before making choices", "category": "analytical"},
+    {"id": 35, "text": "I enjoy social events and group activities", "category": "social"},
+    {"id": 36, "text": "I check my work multiple times to ensure accuracy", "category": "detail"},
+    {"id": 37, "text": "I motivate team members during challenging times", "category": "leadership"},
+    {"id": 38, "text": "I adjust my approach based on feedback", "category": "adaptability"},
+    {"id": 39, "text": "I follow up to make sure people are satisfied", "category": "service"},
+    {"id": 40, "text": "I research thoroughly before making recommendations", "category": "analytical"},
+    {"id": 41, "text": "I connect well with people from different backgrounds", "category": "social"},
+    {"id": 42, "text": "I keep detailed records of important information", "category": "detail"},
+    {"id": 43, "text": "I set clear goals and work toward achieving them", "category": "leadership"},
+    {"id": 44, "text": "I embrace new challenges with enthusiasm", "category": "adaptability"},
+    {"id": 45, "text": "I exceed expectations in customer service", "category": "service"},
+    {"id": 46, "text": "I analyze situations from multiple perspectives", "category": "analytical"},
+    {"id": 47, "text": "I maintain long-term friendships and relationships", "category": "social"},
+    {"id": 48, "text": "I complete tasks thoroughly and completely", "category": "detail"},
+    {"id": 49, "text": "I take responsibility for team outcomes", "category": "leadership"},
+    {"id": 50, "text": "I stay positive during periods of change", "category": "adaptability"},
+    {"id": 51, "text": "I genuinely enjoy helping people succeed", "category": "service"},
+    {"id": 52, "text": "I verify information before sharing it with others", "category": "analytical"},
+    {"id": 53, "text": "I feel comfortable in social situations", "category": "social"},
+    {"id": 54, "text": "I organize my time effectively to meet deadlines", "category": "detail"},
+    {"id": 55, "text": "I provide direction when teams need guidance", "category": "leadership"},
+    {"id": 56, "text": "I adapt my communication style to different audiences", "category": "adaptability"},
+    {"id": 57, "text": "I take pride in delivering excellent service", "category": "service"},
+    {"id": 58, "text": "I think through problems logically", "category": "analytical"},
+    {"id": 59, "text": "I enjoy collaborating with diverse groups of people", "category": "social"},
+    {"id": 60, "text": "I notice when things are out of place or incorrect", "category": "detail"},
+    {"id": 61, "text": "I encourage others to share their ideas", "category": "leadership"},
+    {"id": 62, "text": "I handle multiple priorities effectively", "category": "adaptability"},
+    {"id": 63, "text": "I make sure everyone feels included and valued", "category": "service"},
+    {"id": 64, "text": "I gather input from others before making decisions", "category": "analytical"},
+    {"id": 65, "text": "I build trust quickly with new acquaintances", "category": "social"},
+    {"id": 66, "text": "I create systems to improve efficiency", "category": "detail"},
+    {"id": 67, "text": "I lead by example in all situations", "category": "leadership"},
+    {"id": 68, "text": "I remain flexible when plans need to change", "category": "adaptability"},
+    {"id": 69, "text": "I listen carefully to understand others' needs", "category": "service"},
+    {"id": 70, "text": "I consider long-term consequences of decisions", "category": "analytical"},
+    {"id": 71, "text": "I make others feel comfortable in conversations", "category": "social"},
+    {"id": 72, "text": "I maintain consistent quality in my work", "category": "detail"},
+    {"id": 73, "text": "I help resolve conflicts between team members", "category": "leadership"},
+    {"id": 74, "text": "I learn from mistakes and improve quickly", "category": "adaptability"},
+    {"id": 75, "text": "I go above and beyond to help others", "category": "service"},
+    {"id": 76, "text": "I ask thoughtful questions to understand situations", "category": "analytical"},
+    {"id": 77, "text": "I enjoy meeting people from different industries", "category": "social"},
+    {"id": 78, "text": "I plan ahead to avoid last-minute problems", "category": "detail"},
+    {"id": 79, "text": "I communicate vision clearly to others", "category": "leadership"},
+    {"id": 80, "text": "I stay calm under pressure", "category": "adaptability"},
+    {"id": 81, "text": "I remember what's important to the people I serve", "category": "service"},
+    {"id": 82, "text": "I evaluate options objectively", "category": "analytical"},
+    {"id": 83, "text": "I enjoy introducing people to each other", "category": "social"},
+    {"id": 84, "text": "I review my work carefully before considering it complete", "category": "detail"},
+    {"id": 85, "text": "I take initiative to solve problems", "category": "leadership"},
+    {"id": 86, "text": "I see opportunities in challenging situations", "category": "adaptability"},
+    {"id": 87, "text": "I ensure others feel heard and understood", "category": "service"},
+    {"id": 88, "text": "I base my opinions on facts rather than emotions", "category": "analytical"},
+    {"id": 89, "text": "I maintain professional relationships over time", "category": "social"},
+    {"id": 90, "text": "I document important processes and procedures", "category": "detail"},
+    {"id": 91, "text": "I coordinate team efforts effectively", "category": "leadership"},
+    {"id": 92, "text": "I adjust my goals based on changing circumstances", "category": "adaptability"},
+    {"id": 93, "text": "I celebrate others' successes and achievements", "category": "service"},
+    {"id": 94, "text": "I research best practices before implementing solutions", "category": "analytical"},
+    {"id": 95, "text": "I connect with people on both personal and professional levels", "category": "social"},
+    {"id": 96, "text": "I ensure all aspects of a project are completed properly", "category": "detail"},
+    {"id": 97, "text": "I build consensus among team members", "category": "leadership"},
+    {"id": 98, "text": "I embrace new ways of doing things", "category": "adaptability"},
+    {"id": 99, "text": "I make sure everyone's needs are considered", "category": "service"},
+    {"id": 100, "text": "I validate my assumptions with reliable sources", "category": "analytical"}
 ]
 
 # In-memory storage for cloud deployment
@@ -146,7 +146,7 @@ def calculate_scores(responses):
     """Calculate comprehensive personality scores"""
     scores = {
         'leadership': 0, 'analytical': 0, 'social': 0, 'detail': 0,
-        'adaptability': 0, 'sales': 0, 'service': 0, 'innovation': 0, 'independence': 0
+        'adaptability': 0, 'service': 0
     }
     
     for response in responses:
@@ -165,10 +165,9 @@ def calculate_scores(responses):
 def generate_comprehensive_profile(scores):
     """Generate detailed personality profile with real estate role matching"""
     
-    # Calculate percentiles (approximately 11 questions per category * 5 max = 55 max per category)
+    # Calculate percentiles (approximately 16-17 questions per category * 5 max = 80-85 max per category)
     max_scores = {
-        'leadership': 55, 'analytical': 55, 'social': 55, 'detail': 55, 'adaptability': 55,
-        'sales': 55, 'service': 55, 'innovation': 55, 'independence': 55
+        'leadership': 85, 'analytical': 85, 'social': 85, 'detail': 85, 'adaptability': 85, 'service': 85
     }
     
     percentiles = {}
@@ -182,14 +181,14 @@ def generate_comprehensive_profile(scores):
     # Real Estate Role matching with weighted scoring
     role_matches = []
     
-    # Sales Agent (High sales, social, adaptability)
-    sales_score = (percentiles['sales'] * 0.4 + percentiles['social'] * 0.3 + 
-                  percentiles['adaptability'] * 0.2 + percentiles['independence'] * 0.1)
+    # Sales Agent (High social, service, adaptability)
+    sales_score = (percentiles['social'] * 0.35 + percentiles['service'] * 0.25 + 
+                  percentiles['adaptability'] * 0.25 + percentiles['leadership'] * 0.15)
     role_matches.append(('Sales Agent', sales_score))
     
     # Property Manager (High detail, service, analytical)
-    pm_score = (percentiles['detail'] * 0.4 + percentiles['service'] * 0.3 + 
-               percentiles['analytical'] * 0.2 + percentiles['leadership'] * 0.1)
+    pm_score = (percentiles['detail'] * 0.35 + percentiles['service'] * 0.25 + 
+               percentiles['analytical'] * 0.25 + percentiles['adaptability'] * 0.15)
     role_matches.append(('Property Manager', pm_score))
     
     # Team Leader/Principal (High leadership, social, service)
@@ -197,20 +196,20 @@ def generate_comprehensive_profile(scores):
                    percentiles['service'] * 0.25 + percentiles['analytical'] * 0.1)
     role_matches.append(('Team Leader/Principal', leader_score))
     
-    # Business Development Manager (High innovation, sales, analytical)
-    bd_score = (percentiles['innovation'] * 0.3 + percentiles['sales'] * 0.3 + 
-               percentiles['analytical'] * 0.25 + percentiles['adaptability'] * 0.15)
-    role_matches.append(('Business Development Manager', bd_score))
-    
-    # Client Relations Manager (High service, social, detail)
+    # Client Relations Specialist (High service, social, adaptability)
     crm_score = (percentiles['service'] * 0.4 + percentiles['social'] * 0.3 + 
-                percentiles['detail'] * 0.2 + percentiles['adaptability'] * 0.1)
-    role_matches.append(('Client Relations Manager', crm_score))
+                percentiles['adaptability'] * 0.2 + percentiles['detail'] * 0.1)
+    role_matches.append(('Client Relations Specialist', crm_score))
     
-    # Market Analyst (High analytical, detail, independence)
-    analyst_score = (percentiles['analytical'] * 0.5 + percentiles['detail'] * 0.3 + 
-                    percentiles['independence'] * 0.2)
-    role_matches.append(('Market Analyst', analyst_score))
+    # Administrative Support (High detail, service, analytical)
+    admin_score = (percentiles['detail'] * 0.4 + percentiles['service'] * 0.3 + 
+                  percentiles['analytical'] * 0.2 + percentiles['adaptability'] * 0.1)
+    role_matches.append(('Administrative Support', admin_score))
+    
+    # Business Development (High social, leadership, adaptability)
+    bd_score = (percentiles['social'] * 0.35 + percentiles['leadership'] * 0.3 + 
+               percentiles['adaptability'] * 0.25 + percentiles['service'] * 0.1)
+    role_matches.append(('Business Development', bd_score))
     
     # Sort by fit score
     role_matches.sort(key=lambda x: x[1], reverse=True)
@@ -219,18 +218,15 @@ def generate_comprehensive_profile(scores):
     # Generate personality type based on primary trait
     primary_trait = primary_traits[0]
     personality_types = {
-        'leadership': 'Executive Leader',
-        'analytical': 'Strategic Analyst', 
-        'social': 'Relationship Builder',
-        'detail': 'Process Expert',
-        'adaptability': 'Change Agent',
-        'sales': 'Revenue Driver',
-        'service': 'Client Champion',
-        'innovation': 'Innovation Catalyst',
-        'independence': 'Self-Directed Achiever'
+        'leadership': 'Natural Leader',
+        'analytical': 'Thoughtful Analyst', 
+        'social': 'People Connector',
+        'detail': 'Quality Focused',
+        'adaptability': 'Flexible Achiever',
+        'service': 'Helper & Supporter'
     }
     
-    personality_type = personality_types.get(primary_trait, 'Balanced Professional')
+    personality_type = personality_types.get(primary_trait, 'Well-Rounded Professional')
     
     # Generate detailed insights
     strengths = []
@@ -239,35 +235,41 @@ def generate_comprehensive_profile(scores):
     
     # Leadership insights
     if percentiles['leadership'] >= 70:
-        strengths.append("Natural leadership and team direction capabilities")
-        management_style += "Responds well to autonomy and leadership opportunities. "
+        strengths.append("Natural leadership potential and team coordination abilities")
+        management_style += "Thrives with autonomy and leadership opportunities. "
     elif percentiles['leadership'] <= 30:
-        development_areas.append("Leadership confidence and team management skills")
-        management_style += "Benefits from clear direction and structured leadership development. "
-    
-    # Sales insights  
-    if percentiles['sales'] >= 70:
-        strengths.append("Strong sales acumen and client persuasion skills")
-    elif percentiles['sales'] <= 30:
-        development_areas.append("Sales techniques and client persuasion abilities")
+        development_areas.append("Leadership confidence and team coordination skills")
+        management_style += "Benefits from clear direction and mentorship in leadership. "
     
     # Social insights
     if percentiles['social'] >= 70:
-        strengths.append("Excellent interpersonal and networking abilities")
+        strengths.append("Excellent people skills and relationship building abilities")
     elif percentiles['social'] <= 30:
-        development_areas.append("Relationship building and social engagement skills")
+        development_areas.append("Interpersonal communication and networking skills")
+    
+    # Service insights
+    if percentiles['service'] >= 70:
+        strengths.append("Strong customer service orientation and helping mindset")
+    elif percentiles['service'] <= 30:
+        development_areas.append("Customer service focus and support skills")
     
     # Detail insights
     if percentiles['detail'] >= 70:
-        strengths.append("Exceptional attention to detail and process accuracy")
+        strengths.append("Strong attention to detail and organizational skills")
     elif percentiles['detail'] <= 30:
-        development_areas.append("Process adherence and attention to detail")
+        development_areas.append("Attention to detail and organizational systems")
     
-    # Innovation insights
-    if percentiles['innovation'] >= 70:
-        strengths.append("Creative problem-solving and innovative thinking")
-    elif percentiles['innovation'] <= 30:
-        development_areas.append("Creative thinking and innovative approaches")
+    # Adaptability insights
+    if percentiles['adaptability'] >= 70:
+        strengths.append("Excellent adaptability and learning agility")
+    elif percentiles['adaptability'] <= 30:
+        development_areas.append("Flexibility and adaptation to change")
+    
+    # Analytical insights
+    if percentiles['analytical'] >= 70:
+        strengths.append("Strong analytical thinking and problem-solving skills")
+    elif percentiles['analytical'] <= 30:
+        development_areas.append("Analytical thinking and systematic problem-solving")
     
     return {
         'personality_type': personality_type,
@@ -1803,7 +1805,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
         """Export candidate data as CSV"""
         try:
             # Create CSV content
-            csv_content = "Name,Email,Position,Personality Type,Leadership,Analytical,Social,Detail,Adaptability,Sales,Service,Innovation,Independence,Top Role,Role Fit %,Second Role,Third Role,Date\n"
+            csv_content = "Name,Email,Position,Personality Type,Leadership,Analytical,Social,Detail,Adaptability,Service,Top Role,Role Fit %,Second Role,Third Role,Date\n"
             
             for candidate in candidates_data:
                 result = next((r for r in results_data if r['candidate_id'] == candidate['id']), None)
@@ -1816,7 +1818,7 @@ class LJHPPHandler(BaseHTTPRequestHandler):
                     role2 = top_roles[1] if len(top_roles) > 1 else ('N/A', 0)
                     role3 = top_roles[2] if len(top_roles) > 2 else ('N/A', 0)
                     
-                    csv_content += f'"{candidate["name"]}","{candidate["email"]}","{candidate["position"]}","{profile["personality_type"]}",{scores["leadership"]},{scores["analytical"]},{scores["social"]},{scores["detail"]},{scores["adaptability"]},{scores["sales"]},{scores["service"]},{scores["innovation"]},{scores["independence"]},"{role1[0]}",{role1[1]:.1f},"{role2[0]}","{role3[0]}",{candidate["timestamp"][:10]}\n'
+                    csv_content += f'"{candidate["name"]}","{candidate["email"]}","{candidate["position"]}","{profile["personality_type"]}",{scores["leadership"]},{scores["analytical"]},{scores["social"]},{scores["detail"]},{scores["adaptability"]},{scores["service"]},"{role1[0]}",{role1[1]:.1f},"{role2[0]}","{role3[0]}",{candidate["timestamp"][:10]}\n'
             
             self.send_response(200)
             self.send_header('Content-type', 'text/csv; charset=utf-8')
@@ -1837,7 +1839,7 @@ def start_server():
 
 🔧 System Check:
    ✅ Python {sys.version.split()[0]}
-   ✅ 100 Questions Loaded & Randomized
+   ✅ 100 Questions Loaded & Randomized (Entry-Level Friendly)
    ✅ Cloud Storage Ready
    ✅ LJ Hooker Branding Applied
    ✅ Real Estate Role Matching Active
@@ -1863,6 +1865,6 @@ def start_server():
 if __name__ == '__main__':
     print("🏢 LJ Hooker Property Partners")
     print("🎯 Professional Assessment Platform")
-    print("☁️ Railway Deployment Version - Font Optimized & Security Enhanced")
+    print("☁️ Railway Deployment Version - Optimized for New Candidates")
     print("=" * 50)
     start_server()
